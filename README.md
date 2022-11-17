@@ -31,7 +31,7 @@ function Home(){
 }
 ```
 Podemos também colocar dentro de uma div:
-
+```
 function Home(){
 	return(
 		<div>
@@ -41,22 +41,22 @@ function Home(){
 		</div>
 	)
 }
-
+```
 Importando CSS:
 
 Para importar CSS para nosso projeto foi criada uma pasta styles dentro da pasta src. 
 É considerada uma boa prática resetarmos o estilo de nossa página, uma vez que as configurações iniciais são diferentes em cada navegador.  Desta forma, foi criado uma arquivo global.css dentro da pasta styles com as seguintes configurações padrão, apenas como exemplo:
-
+```
 *{
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
-
+```
 Para de fato importá-lo, basta acessar nosso arquivo main.jsx e adicionar import + o caminho do arquivo, da seguinte forma:
-
+```
 Import ‘./styles/global.css’
-
+```
 
 
 Separando CSS:
@@ -69,13 +69,13 @@ Importando fontes:
 
 Para importar fontes para nosso projeto, podemos ir até algum repositório na internet que disponibilize fontes, copiar os links fornecidos para o import e colar na tag <head> do nosso arquivo index.html dentro da pasta principal.
 Para usá-los podemos abrir o nosso arquivo global.css dentro da pasta styles e adicioná-los aos elementos que quisermos, como no exemplo abaixo:
-
+```
 body, input, button {
 	font-size: 16px;
 	font-family: ‘Roboto’, sans-serif;
 	-
 }
-
+```
 
 
 Componentes
@@ -84,7 +84,7 @@ Iremos usar uma estrutura de pastas e arquivos parecida com o que fizemos anteri
 Dentro da pasta src iremos criar uma pasta chamada components. Dentro dessa pasta criaremos uma pasta para os componentes do nosso projeto, como, por exemplo, nossos Cards.
 Ao criar a pasta Card, criamos dentro dela o arquivo index.jsx e o arquivo styles.css. 
 Dentro do arquivo index.jsx iremos importar nosso arquivo styles.css e criar a estrutura básica, exportando a função que terá como retorno nosso conteúdo HTML. Como no exemplo abaixo:
-
+```
 import ‘./styles.css’
 
 export function Card(){
@@ -95,11 +95,11 @@ export function Card(){
 		</div>
 	)
 }
-
+```
 Para importar este componente, iremos no arquivo index.jsx na pasta Home, faremos a importação da seguinte forma:
-
+```
 import {  Card  } from ‘../../components/Card’
-
+```
 E usamos o código <Card /> para posicioná-lo onde quisermos em nosso código.
 
 Importante: note que para importar utilizamos {  Card  } em vez de apenas escrever Card. Isso ocorre porque para exportá-lo usando export function em vez de export default. 
@@ -109,12 +109,12 @@ Propriedades
 
 Para deixar nossos componentes dinâmicos e passar a eles propriedades e informações a ser apresentadas devemos passar essas propriedades a ele. 
 Para isso, vamos ao nosso arquivo index.jsx dentro da pasta Home e na tag <Card> passaremos as propriedades desta maneira:
-
+```
 <Card name=‘Rodrigo’ time=’10:55:25’ />
 <Card name=‘João’ time=’11:00:10’ />
-
+```
 Depois, iremos ao nosso arquivo index.jsx na pasta Card e passaremos a palavra “props” como parâmetro da nossa função Card, além de adicionar o valor da propriedade ao nosso conteúdo da seguinte forma:
-
+```
 import ‘./styles.css’
 
 export function Card(props){
@@ -125,16 +125,16 @@ export function Card(props){
 		</div>
 	)
 }
-
+```
 
 Estado
 
 A ideia da nossa lista de presença é que possamos digitar nosso nome no input e ele apareça nos cards.
 
 Para isso, vamos importar React useState para o arquivo index.jsx na pasta Home, da seguinte forma:
-
+```
 import React, { useState } from ‘react’
-
+```
 Agora, para criar um estado, criaremos uma const com dois elementos: studentName, que vai armazenar conteúdo do estado, e setStudentName, que é a função que vai atualizar este estado. Vamos atribui a essa const a função importada useState(). Fica assim:
 
 Const [studentName, setStudentName] = useState()
@@ -164,7 +164,7 @@ Depois vamos envolver nosso Card em {} da seguinte forma:
 Aqui criamos uma estrutura de repetição, que irá percorrer os elementos da lista e exibir em nosso card cada um deles, onde passamos as propriedades {student.name} e {student.time}.
 
 Depois, criamos uma função para lidar com as informações dos estudantes adicionados, onde criamos um objeto newStudent com essas informações e, no final, passamos este objeto para a nossa função setStudents:
-
+```
 function handleAddStudent(){
 	const newStudent = {
 		name: studentName,
@@ -176,11 +176,11 @@ function handleAddStudent(){
 	}
 	setStudents([newStudent])
 }
-
+```
 Depois, colocamos o evento onClick no button para que ele chame a função handleAddStudent() sempre que for clicado:
-
+```
 onClick={handleAddStudent}
-
+```
 Feito isso, assim que o aluno adicionar seu nome no input e clicar no botão adicionar, o nome dele aparecerá no card logo abaixo. 
 Mas lembre-se: segundo o princípio da imutabilidade, sempre que um novo estudante escrever o nome dele, esse card será apagado e substituído por um novo, com o nome do novo aluno. 
 Para resolver esse problema, devemos voltar na nossa função handleAddStudent e na chamada da função setStudents fazer a seguinte alteração:
@@ -193,11 +193,11 @@ Feito isso, o parâmetro que estaremos passando será estado anterior de nosso e
 Key prop
 
 É importante que, quando criarmos componentes baseados em estruturas de repetição, como a deste exemplo, usemos chaves únicas para identificá-los. No nosso exemplo podemos fazer isso na nossa tag <Card> usando o horário da seguinte forma:
-
+```
 key= {student.time}
 name={student.name}
 time={student.time}
-
+```
 Desta forma não há risco de criarmos o componente com as mesmas informações duas vezes em nosso código.
 
 Hooks
@@ -208,7 +208,7 @@ Headers
 
 Vamos adicionar uma imagem e o nome do usuário para representar, por exemplo, a pessoa que está fazendo a chamada. 
 Para isso, vamos colocar nosso título num Header e acrescentar uma div com alguns elementos, da seguinte forma:
-
+```
 <header>
 	<h1>Lista de Presença</h1>
 	<div>
@@ -216,7 +216,7 @@ Para isso, vamos colocar nosso título num Header e acrescentar uma div com algu
 		<img src="https://github.com/DiegoAVaz.png" alt="Foto de perfil" />
 	</div>
 </header>
-
+```
 
 useEffect
 
@@ -226,18 +226,18 @@ Para importá-lo, basta ir até aonde importamos o useState e adicioná-lo ao la
 Import React, {  useState, useEffect  } from ‘react’
 
 E para usá-lo, vamos adicionar o seguinte código logo antes da palavra return da nossa função home do arquivo index.jsx da pasta Home:
-
+```
 useEffect(() => {
 	
 }, [])
-
+```
 Entre as {} estará o que será executado. No array [] estarão os elementos ou componentes a ser renderizados para disparar o useEffect.
 
 Consumindo API:
 
 Por enquanto a imagem e o nome que colocamos na div em nosso reader estão estáticos, porém podemos obter essas informações através do consumo de APIs.
 Para isso, vamos usar a API do Github e o fetiche dentro da função useEffect:
-
+```
 useEffect(() => {
 	fetch(‘https://api.github.com/users/DiegoAVaz’)
 	.then(response => response.json())
@@ -245,12 +245,13 @@ useEffect(() => {
 
 	})
 }, [])
-
+```
 Depois, criamos um novo estado “user” da seguinte forma:
-
+```
 const [user, setUser] = useState({ name: ‘’, avatar: ‘’ })
-
+```
 Em nossa div do reader, colocaremos como conteúdo o nome de usuário que será consumido pela API e a imagem:
-
+```
 <strong>{user.name}</strong>
 <img src={user.avatar} alt="Foto de perfil" />
+```
