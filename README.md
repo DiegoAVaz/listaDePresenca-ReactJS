@@ -143,7 +143,7 @@ Em seguida, vamos adicionar o evento onChange em nosso input e criar uma arrow f
 
 onChange={e => handleNameChange(e.target.value)}
 
-Agora, apenas como exemplo, caso mudemos o conteúdo de nossa <h1> de ‘Lista de Presença’ para ‘nome: {studentName}’ (o {} serve para passarmos a variável que está armazenando o estado), notaremos que o valor digitado é apresentado na tela em tempo real. 
+Agora, apenas como exemplo, caso mudemos o conteúdo de nossa h1 de ‘Lista de Presença’ para ‘nome: {studentName}’ (o {} serve para passarmos a variável que está armazenando o estado), notaremos que o valor digitado é apresentado na tela em tempo real. 
 
 
 Imutabilidade
