@@ -1,4 +1,3 @@
-<!--
 React JS
 
 Para criar um projeto React, foi criada uma pasta chamada discover.
@@ -20,7 +19,7 @@ No react tudo e javascript, ams teremos funções retornando conteúdo html que 
 
 Nos arquivos .jsx, o retorno das funções com os conteúdos HTML devem sempre retornar um valor apenas. Dessa maneira, se voce cria varias elementos, Dara erro. Então os elementos devem ser “empacotados” para voltar sempre um único valor. 
 Para isso, podemos criar “Fragments” com tags vazias da seguinte maneira:
-
+```
 function Home(){
 	return(
 		<>
@@ -30,7 +29,7 @@ function Home(){
 		</>
 	)
 }
-
+```
 Podemos também colocar dentro de uma div:
 
 function Home(){
