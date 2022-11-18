@@ -2,15 +2,15 @@ React JS
 
 Para criar um projeto React, foi criada uma pasta chamada discover.
 Então, foi criado um projeto com:
-'''
+```
 npm create vite@latest reactApp --template react
-'''
+```
 Depois, rodamos os comandos a seguir:
-'''
+```
 cd reactapp
 npm install
 npm run dev
-'''
+```
 O local onde o projeto está rodando aparecerá.
 
 Repare que dentro do arquivo index.html, dentro da tag body, existe uma div. O conteúdo dessa div está sendo importado do arquivo main.jsx que está na pasta src. Na pasta src está sendo renderizados pelo ReactDOM o componente <App />. Este componente está sendo importado do arquivo App.jsx. Por fim, dentro do arquivo App.jsx está todo o conteúdo que está sendo renderizado.
