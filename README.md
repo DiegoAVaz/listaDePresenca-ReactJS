@@ -2,22 +2,24 @@ React JS
 
 Para criar um projeto React, foi criada uma pasta chamada discover.
 Então, foi criado um projeto com:
+'''
 npm create vite@latest reactApp --template react
-
-Depois, rodamos:
+'''
+Depois, rodamos os comandos a seguir:
+'''
 cd reactapp
 npm install
 npm run dev
+'''
+O local onde o projeto está rodando aparecerá.
 
-O local onde o projeto esta rodando aparecera.
+Repare que dentro do arquivo index.html, dentro da tag body, existe uma div. O conteúdo dessa div está sendo importado do arquivo main.jsx que está na pasta src. Na pasta src está sendo renderizados pelo ReactDOM o componente <App />. Este componente está sendo importado do arquivo App.jsx. Por fim, dentro do arquivo App.jsx está todo o conteúdo que está sendo renderizado.
 
-Repare que dentro do arquivo index.html, dentro da tag body, existe uma div. O conteúdo dessa div esta sendo importado do arquivo main.jsx que esta na pasta src. Na pasta src esta sendo renderizados em ReactDOM o componente <App />. Este componente esta sendo importado do arquivo App.jsx. Por fim, dentro do arquivo App.jsx esta todo o conteúdo que esta sendo renderizado.
+Os arquivos com extensão .jsx. Essa é a sintaxe que o react usa para que possamos criar nossas interfaces de forma declarativa. 
+Dentro de um arquivo .jsx teremos uma função e o retorno desta função será um conteúdo html. 
+No react tudo á javascript, mas teremos funções retornando conteúdo html que será renderizado para o usuário.
 
-Os arquivos com extensão .jsx. Essa e a sintaxe que o react usa para que possamos criar nossas interfaces de forma declarativa. 
-Dentro de um arquivo .jsx teremos uma função e o retorno desta função sera um conteúdo html. 
-No react tudo e javascript, ams teremos funções retornando conteúdo html que sera renderizados para o usuário.
-
-Nos arquivos .jsx, o retorno das funções com os conteúdos HTML devem sempre retornar um valor apenas. Dessa maneira, se voce cria varias elementos, Dara erro. Então os elementos devem ser “empacotados” para voltar sempre um único valor. 
+Nos arquivos .jsx, o retorno das funções com os conteúdos HTML devem sempre retornar um valor apenas. Dessa maneira, se você cria várias elementos, dará erro. Então os elementos devem ser “empacotados” para voltar sempre um único valor. 
 Para isso, podemos criar “Fragments” com tags vazias da seguinte maneira:
 ```
 function Home(){
